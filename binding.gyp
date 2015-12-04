@@ -21,18 +21,6 @@
         'deps/libjpeg/libjpeg.gyp:libjpeg',
         'deps/pHash/pHash.gyp:phash',
       ],
-      'ccflags': [
-        '-mmacosx-version-min=10.7',
-        '<!@(pkg-config --cflags pHash)',
-        '-std=c++11',
-        '-stdlib=libc++'
-      ],
-      'cflags': [
-        '-mmacosx-version-min=10.7',
-        '<!@(pkg-config --cflags pHash)',
-        '-std=c++11',
-        '-stdlib=libc++'
-      ],
       'conditions': [
         ['OS=="win"',
           {
@@ -43,18 +31,20 @@
         ],
         ['OS=="mac"',
           {
-            'ccflags': [
-              '-mmacosx-version-min=10.7',
-              '<!@(pkg-config --cflags pHash)',
-              '-std=c++11',
-              '-stdlib=libc++'
-            ],
-            'cflags': [
-              '-mmacosx-version-min=10.7',
-              '<!@(pkg-config --cflags pHash)',
-              '-std=c++11',
-              '-stdlib=libc++'
-            ],
+            'xcode_settings': {
+              'OTHER_CCFLAGS': [
+                '-mmacosx-version-min=10.7',
+                '<!@(pkg-config --cflags pHash)',
+                '-std=c++11',
+                '-stdlib=libc++'
+              ],
+              'OTHER_CFLAGS': [
+                '-mmacosx-version-min=10.7',
+                '<!@(pkg-config --cflags pHash)',
+                '-std=c++11',
+                '-stdlib=libc++'
+              ],
+            },
           }
         ],
       ],
