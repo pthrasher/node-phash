@@ -27,10 +27,7 @@
             'include_dirs': [
               'deps/pHash/win32/',
             ],
-          },
-        ],
-        ['OS=="mac"',
-          {
+          }, {
             'xcode_settings': {
               'OTHER_CCFLAGS': [
                 '-mmacosx-version-min=10.7',
